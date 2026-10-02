@@ -1,927 +1,996 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jyoti | Personal Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #070b18;
-      --surface: rgba(255,255,255,0.06);
-      --surface-strong: rgba(255,255,255,0.12);
-      --text: #e8f1ff;
-      --text-muted: #a3b5d0;
-      --accent: #6c63ff;
-      --accent-2: #1dd3b0;  
-      --shadow: 0 20px 60px rgba(0,0,0,0.25);
-      scroll-behavior: smooth;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <title>Jagriti | Future AI Engineer</title>
 
-    html, body {
-      min-height: 100%;
-      background: radial-gradient(circle at top, rgba(108,99,255,0.16), transparent 25%),
-                  radial-gradient(circle at bottom right, rgba(29,211,176,0.14), transparent 20%),
-                  linear-gradient(180deg, #070b18 0%, #05070f 100%);
-      color: var(--text);
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-    }
+    <meta name="description"
+        content="Jagriti - BCA student and aspiring AI Engineer passionate about Python, AI/ML, Generative AI and modern web development.">
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle, rgba(108,99,255,0.15) 0%, transparent 35%),
-                  radial-gradient(circle, rgba(29,211,176,0.12) 10%, transparent 40%);
-      z-index: 0;
-      pointer-events: none;
-    }
- 
-    .container {
-      width: min(1120px, calc(100% - 2rem));
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(7,11,24,0.88);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
+    <!-- Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    .logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    nav ul {
-      display: flex;
-      gap: 1.3rem;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--text);
-    }
-
-    section {
-      padding: 6rem 0;
-      position: relative;
-    }
-
-    .hero {
-      min-height: calc(100vh - 88px);
-      display: grid;
-      place-items: center;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .hero-copy {
-      max-width: 600px;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-copy h1 {
-      font-size: clamp(2.5rem, 4vw, 4.5rem);
-      line-height: 0.95;
-      margin-bottom: 1rem;
-      letter-spacing: -0.04em;
-    }
-
-    .hero-copy p {
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 1.75rem;
-      color: var(--text-muted);
-    }
-
-    .typing {
-      display: inline-block;
-      color: var(--accent-2);
-      font-weight: 600;
-      min-height: 1.25em;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .btn, .btn-alt {
-      border: none;
-      border-radius: 999px;
-      padding: 0.95rem 1.7rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      box-shadow: 0 18px 35px rgba(108,99,255,0.22);
-    }
-
-    .btn-alt {
-      background: rgba(255,255,255,0.08);
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .btn:hover, .btn-alt:hover {
-      transform: translateY(-3px);
-    }
-
-    .profile-card {
-      max-width: 420px;
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      box-shadow: var(--shadow);
-      padding: 2rem;
-      backdrop-filter: blur(18px);
-    }
-
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(108,99,255,0.35), rgba(29,211,176,0.35));
-      display: grid;
-      place-items: center;
-      margin: 0 auto 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .profile-pic::before {
-      content: 'J';
-      font-size: 5rem;
-      color: rgba(255,255,255,0.85);
-      font-weight: 700;
-    }
-
-    .profile-info p {
-      color: var(--text-muted);
-      text-align: center;
-      line-height: 1.7;
-    }
-
-    .profile-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 1.75rem;
-      color: var(--text);
-    }
-
-    .profile-meta div {
-      text-align: center;
-    }
-
-    .profile-meta small {
-      display: block;
-      color: var(--text-muted);
-      margin-top: 0.35rem;
-      font-size: 0.9rem;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .section-title h2 {
-      font-size: 2rem;
-      margin: 0;
-    }
-
-    .section-title span {
-      display: inline-flex;
-      background: rgba(108,99,255,0.12);
-      color: var(--accent);
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-    }
-
-    .content-grid {
-      display: grid;
-      gap: 1.75rem;
-    }
-
-    .glass-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 28px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      transition: transform 0.4s ease, border-color 0.4s ease;
-      opacity: 0;
-      transform: translateY(50px);
-    }
-
-    .glass-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.3rem;
-    }
-
-    .skill-card {
-      border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.04);
-      border-radius: 24px;
-      padding: 1.5rem;
-      display: grid;
-      gap: 1rem;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 35px rgba(0,0,0,0.18);
-    }
-
-    .skill-card h3 {
-      margin: 0;
-      font-size: 1.05rem;
-    }
-
-    .skill-icon {
-      font-size: 2rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .about-text p {
-      line-height: 1.85;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .stats-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .stat-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 1.3rem;
-      border-radius: 24px;
-    }
-
-    .stat-card strong {
-      font-size: 1.25rem;
-      color: var(--text);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      padding: 1.75rem;
-      box-shadow: var(--shadow);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px) rotateZ(-0.4deg);
-      box-shadow: 0 28px 60px rgba(0,0,0,0.25);
-    }
-
-    .project-card h3 {
-      margin-bottom: 0.75rem;
-    }
-
-    .project-card p {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    .project-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .project-actions a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255,255,255,0.08);
-      color: var(--text);
-      padding: 0.9rem 1.2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .project-actions a:hover {
-      transform: translateY(-2px);
-      background: rgba(108,99,255,0.16);
-    }
-
-    .education-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .education-card {
-      padding: 2rem;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .education-card h3 {
-      margin-bottom: 0.75rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .contact-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 2rem;
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-card label {
-      display: block;
-      margin-bottom: 0.6rem;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .contact-card input,
-    .contact-card textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text);
-      border-radius: 18px;
-      padding: 1rem 1.1rem;
-      margin-bottom: 1.2rem;
-      resize: vertical;
-      min-height: 3rem;
-    }
-
-    .contact-card textarea {
-      min-height: 160px;
-    }
-
-    .contact-card button {
-      width: 100%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: 1rem 1.2rem;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 18px 30px rgba(108,99,255,0.22);
-      transition: transform 0.3s ease;
-    }
-
-    .contact-card button:hover {
-      transform: translateY(-3px);
-    }
-
-    footer {
-      padding: 2rem 0 3rem;
-      text-align: center;
-      color: var(--text-muted);
-    }
-
-    .social-links {
-      display: inline-flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .social-links a {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      text-decoration: none;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    .social-links a:hover {
-      transform: translateY(-3px);
-      background: rgba(108,99,255,0.18);
-    }
-
-    .top-button {
-      position: fixed;
-      right: 1.25rem;
-      bottom: 1.25rem;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      display: grid;
-      place-items: center;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 18px 30px rgba(108,99,255,0.28);
-      z-index: 30;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.3s ease;
-    }
-
-    .top-button.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .top-button:hover {
-      transform: translateY(-3px);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 960px) {
-      .hero-grid,
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-card {
-        margin-top: 1rem;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav ul {
-        gap: 0.85rem;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 3rem;
-      }
-
-      section {
-        padding: 4.5rem 0;
-      }
-
-      .hero-grid {
-        gap: 1.5rem;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .hero-copy h1 {
-        font-size: 2.8rem;
-      }
-
-      .profile-pic {
-        width: 140px;
-        height: 140px;
-      }
-
-      .skills-grid,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="newport.css">
 </head>
+
 <body>
-  <header>
-    <div class="container nav-inner">
-      <a href="#home" class="logo"><h3>Jagriti</h3></a>
-      <nav>
-        <ul>
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="gradient gradient-one"></div>
+        <div class="gradient gradient-two"></div>
+        <div class="gradient gradient-three"></div>
+
+        <div class="grid-background"></div>
+
+        <div class="particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
-  </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <h3 class="eyebrow">Hello, I'm</h3>
-          <h1>Jagriti</h1>
-          <h2>BCA student</h2>
-          <h3>I am a BCA student learning generative AI, Python, AI/ML , C/C++ and web development. I love building modern interfaces and intelligent applications with a clean, professional feel.</h3>
-          <p>Currently working on <span class="typing"></span></p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn">Contact Me</a>
-            <a href="assest/jagriti.pdf" class="btn-alt">Download Resume</a>
-          </div>
+
+    <!-- Mouse Glow -->
+    <div class="mouse-glow"></div>
+
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                <span class="logo-symbol">&lt;/&gt;</span>
+                Jagriti
+            </a>
+
+            <nav class="nav-menu">
+
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+
+            </nav>
+
+            <a href="#contact" class="nav-button">
+                Let's Talk <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <button class="menu-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
         </div>
 
-     
-    </section>
+    </header>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-title reveal">
-          <h2>About Me</h2>
-          <span>Who I am</span>
-        </div>
-        <div class="about-grid content-grid zero-column">
-          <div class="about-text reveal">
-            <h3>Motivated BCA Student</h3>
-            <p>Motivated BCA student with a strong interest in Artificial Intelligence and modern technologies. Skilled in programming, web development, and logical problem-solving, with hands-on experience through self-made GitHub projects. Seeking opportunities in AI or software development to gain real-world experience and contribute to innovative solutions.</p>
-            <br>
-              <div class="about-actions">
-              <a href="#contact" class="btn">Get in touch</a>
-              <a href="assest/jagriti.pdf" class="btn-alt">Download Resume</a>
+
+    <!-- HERO -->
+    <main>
+
+        <section id="home" class="hero">
+
+            <div class="container hero-container">
+
+                <!-- LEFT -->
+                <div class="hero-content reveal">
+
+                    <div class="availability">
+                        <span class="status-dot"></span>
+                        Available for opportunities
+                    </div>
+
+                    <p class="hero-small">
+                        HELLO, I'M
+                    </p>
+
+                    <h1>
+                        Jagriti
+                        <span class="gradient-text">Thandel</span>
+                    </h1>
+
+                    <div class="hero-role">
+                        <span>I'm a</span>
+                        <span class="typing"></span>
+                        <span class="cursor">|</span>
+                    </div>
+
+                    <p class="hero-description">
+                        BCA student passionate about
+                        <strong>Artificial Intelligence, Generative AI,
+                            Python</strong> and modern web development.
+                        I love turning ideas into intelligent and beautiful
+                        digital experiences.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="primary-btn">
+                            View My Work
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="assest/jagriti.pdf"
+                            class="secondary-btn"
+                            download>
+                            <i class="fa-solid fa-download"></i>
+                            Resume
+                        </a>
+
+                    </div>
+
+
+                    <!-- Social -->
+                    <div class="hero-socials">
+
+                        <span>Find me on</span>
+
+                        <a href="https://github.com/Jagritithandel"
+                            target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/jagritithandel"
+                            target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT FUTURISTIC AI VISUAL -->
+                <div class="hero-visual reveal">
+
+                    <div class="ai-orbit">
+
+                        <div class="orbit orbit-one"></div>
+                        <div class="orbit orbit-two"></div>
+                        <div class="orbit orbit-three"></div>
+
+                        <div class="orbit-dot dot-one"></div>
+                        <div class="orbit-dot dot-two"></div>
+                        <div class="orbit-dot dot-three"></div>
+
+                        <div class="ai-core">
+
+                            <div class="core-ring"></div>
+
+                            <div class="ai-symbol">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+
+                            <span>AI</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Floating Cards -->
+
+                    <div class="floating-card card-python">
+                        <i class="fa-brands fa-python"></i>
+                        <div>
+                            <strong>Python</strong>
+                            <small>Development</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-ai">
+                        <i class="fa-solid fa-robot"></i>
+                        <div>
+                            <strong>Generative AI</strong>
+                            <small>Learning</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card card-code">
+                        <i class="fa-solid fa-code"></i>
+                        <div>
+                            <strong>Build</strong>
+                            <small>Innovate</small>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-          </div>
 
-          <div class="about-animation reveal">
-            <!-- Simple CSS floating blob animation as a side visual -->
-            <div class="blob">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="g" x1="0" x2="1">
-                    <stop offset="0%" stop-color="#6C63FF"/>
-                    <stop offset="100%" stop-color="#00D4FF"/>
-                  </linearGradient>
-                </defs>
-                <path fill="url(#g)">
-                  <animate attributeName="d" dur="8s" repeatCount="indefinite" values="M43.6,-66.9C57.6,-57.5,70.7,-50,75.4,-38.1C80,-26.2,76.2,-9.9,69.6,5.9C63.1,21.7,53.8,36.6,40.7,47.1C27.6,57.6,10.8,63.7,-6.1,67.3C-23.1,71,-46.2,72.3,-57.6,62.1C-69,51.9,-68.6,30.1,-68.2,9.1C-67.8,-11.9,-67.4,-31.4,-58.4,-42.8C-49.4,-54.2,-31.9,-57.5,-15.6,-64.4C0.8,-71.3,16.1,-81.3,29.6,-79.9C43.1,-78.6,57.6,-66.9,43.6,-66.9Z; M33.5,-56.6C45.2,-48.8,59.5,-43.1,67.6,-33.4C75.7,-23.7,77.6,-10,74.7,2.4C71.8,14.8,64.1,25.9,54.6,36C45.1,46.1,34,55.2,21.6,60.8C9.2,66.4,-4.6,68.6,-17.3,66.1C-30,63.7,-41.6,56.6,-53.5,45.3C-65.4,33.9,-77.7,18.4,-79.3,1.5C-80.9,-15.4,-71.8,-33.8,-58.3,-43.7C-44.8,-53.6,-26.9,-55,-9.4,-52.6C8.1,-50.2,16.1,-44.3,33.5,-56.6Z; M43.6,-66.9C57.6,-57.5,70.7,-50,75.4,-38.1C80,-26.2,76.2,-9.9,69.6,5.9C63.1,21.7,53.8,36.6,40.7,47.1C27.6,57.6,10.8,63.7,-6.1,67.3C-23.1,71,-46.2,72.3,-57.6,62.1C-69,51.9,-68.6,30.1,-68.2,9.1C-67.8,-11.9,-67.4,-31.4,-58.4,-42.8C-49.4,-54.2,-31.9,-57.5,-15.6,-64.4C0.8,-71.3,16.1,-81.3,29.6,-79.9C43.1,-78.6,57.6,-66.9,43.6,-66.9Z" />
-                </path>
-              </svg>
+
+            <a href="#about" class="scroll-down">
+                <span>Scroll to explore</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </a>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="section-tag">ABOUT ME</span>
+
+                    <h2>
+                        Building today,
+                        <span>creating tomorrow.</span>
+                    </h2>
+
+                    <p>
+                        A curious developer continuously learning,
+                        experimenting and building.
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-card glass-card reveal">
+
+                        <div class="about-icon">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+
+                        <h3>Who I Am</h3>
+
+                        <p>
+                            I'm a BCA student with a strong interest in
+                            Artificial Intelligence and modern technologies.
+                            I enjoy solving problems through code and
+                            building practical projects.
+                        </p>
+
+                        <p>
+                            My current focus is becoming an
+                            <strong>AI Engineer</strong> while improving
+                            my Python, machine learning and web development
+                            skills.
+                        </p>
+
+                        <a href="#contact" class="text-link">
+                            Let's connect
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="about-stats reveal">
+
+                        <div class="stat-card glass-card">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div>
+                                <strong>BCA</strong>
+                                <span>Student</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card glass-card">
+                            <i class="fa-solid fa-brain"></i>
+                            <div>
+                                <strong>AI</strong>
+                                <span>Future Engineer</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card glass-card">
+                            <i class="fa-solid fa-code"></i>
+                            <div>
+                                <strong>10+</strong>
+                                <span>Projects & Experiments</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card glass-card">
+                            <i class="fa-solid fa-rocket"></i>
+                            <div>
+                                <strong>Always</strong>
+                                <span>Learning</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="skills">
-      <div class="container">
-        <div class="section-title reveal">
-          <h2>Skills</h2>
-          <span>What I use</span>
-        </div>
-        <div class="skills-grid">
-          <article class="skill-card reveal">
-            <div class="skill-icon">🌐</div>
-            <h3>HTML</h3>
-            <p>Semantic structure and accessible layouts for modern websites.</p>
-          </article>
-          <article class="skill-card reveal">
-            <div class="skill-icon">🎨</div>
-            <h3>CSS</h3>
-            <p>Responsive design, animations, gradients, and glassmorphism styling.</p>
-          </article>
-          <article class="skill-card reveal">
-            <div class="skill-icon">⚡</div>
-            <h3>JavaScript</h3>
-            <p>Interactive UI, smooth animations, and dynamic behavior.</p>
-          </article>
-          <article class="skill-card reveal">
-            <div class="skill-icon">🐍</div>
-            <h3>Python</h3>
-            <p>Scripting, automation, and building intelligent applications.</p>
-          </article>
-          <article class="skill-card reveal">
-            <div class="skill-icon">C</div>
-            <h3>C</h3>
-            <p>Low-level programming, system programming, and performance optimization.</p>
-          </article>
-          <article class="skill-card reveal">
-            <div class="skill-icon">C++</div>
-            <h3>C++</h3>
-            <p>Object-oriented programming, memory management, and performance optimization.</p>
-          </article>
-          <article class="skill-card reveal">
-            <div class="skill-icon">⚡</div>
-            <h3>Java</h3>
-            <p>Object-oriented programming, memory management, and performance optimization.</p>
-          </article>
-          <article class="skill-card reveal">
-            <div class="skill-icon">🔥</div>
-            <h3>Flask</h3>
-            <p>Lightweight backend framework for web apps and APIs.</p>
-          </article>
-          <article class="skill-card reveal">
-            <div class="skill-icon">🌿</div>
-            <h3>Git & GitHub</h3>
-            <p>Version control, collaboration, and project management.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="projects">
-      <div class="container">
-        <div class="section-title reveal">
-          <h2>Projects</h2>
-          <span>Recent work</span>
-        </div>
-        <div class="projects-grid">
-          <article class="project-card reveal">
-            <h3>Friend Chatbot</h3>
-            <p>An interactive Python chatbot that responds like a friendly companion, built with natural language patterns.</p>
-            <div class="project-actions">
-              <a href="https://github.com/Jagritithandel/friend-bot">Go</a>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section skills-section">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="section-tag">MY SKILLS</span>
+
+                    <h2>
+                        Tools I use to
+                        <span>bring ideas to life.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+
+                    <div class="skill-card reveal tilt">
+
+                        <div class="skill-top">
+                            <div class="skill-icon python">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+
+                            <span>01</span>
+                        </div>
+
+                        <h3>Python</h3>
+
+                        <p>
+                            Programming, automation and intelligent
+                            application development.
+                        </p>
+
+                        <div class="skill-progress">
+                            <div style="--progress: 78%"></div>
+                        </div>
+
+                        <small>Learning & Building</small>
+
+                    </div>
+
+
+                    <div class="skill-card reveal tilt">
+
+                        <div class="skill-top">
+
+                            <div class="skill-icon ai">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+
+                            <span>02</span>
+
+                        </div>
+
+                        <h3>AI / ML</h3>
+
+                        <p>
+                            Exploring machine learning, AI concepts and
+                            intelligent systems.
+                        </p>
+
+                        <div class="skill-progress">
+                            <div style="--progress: 55%"></div>
+                        </div>
+
+                        <small>Growing Knowledge</small>
+
+                    </div>
+
+
+                    <div class="skill-card reveal tilt">
+
+                        <div class="skill-top">
+
+                            <div class="skill-icon genai">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+
+                            <span>03</span>
+
+                        </div>
+
+                        <h3>Generative AI</h3>
+
+                        <p>
+                            Learning prompt engineering and modern
+                            generative AI workflows.
+                        </p>
+
+                        <div class="skill-progress">
+                            <div style="--progress: 65%"></div>
+                        </div>
+
+                        <small>Exploring</small>
+
+                    </div>
+
+
+                    <div class="skill-card reveal tilt">
+
+                        <div class="skill-top">
+
+                            <div class="skill-icon web">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+
+                            <span>04</span>
+
+                        </div>
+
+                        <h3>Web Development</h3>
+
+                        <p>
+                            Creating responsive interfaces using
+                            HTML, CSS and JavaScript.
+                        </p>
+
+                        <div class="skill-progress">
+                            <div style="--progress: 80%"></div>
+                        </div>
+
+                        <small>Building Projects</small>
+
+                    </div>
+
+
+                    <div class="skill-card reveal tilt">
+
+                        <div class="skill-top">
+
+                            <div class="skill-icon cpp">
+                                <span>C++</span>
+                            </div>
+
+                            <span>05</span>
+
+                        </div>
+
+                        <h3>C / C++</h3>
+
+                        <p>
+                            Programming fundamentals, logic building
+                            and object-oriented concepts.
+                        </p>
+
+                        <div class="skill-progress">
+                            <div style="--progress: 70%"></div>
+                        </div>
+
+                        <small>Programming</small>
+
+                    </div>
+
+
+                    <div class="skill-card reveal tilt">
+
+                        <div class="skill-top">
+
+                            <div class="skill-icon flask">
+                                <i class="fa-solid fa-flask"></i>
+                            </div>
+
+                            <span>06</span>
+
+                        </div>
+
+                        <h3>Flask</h3>
+
+                        <p>
+                            Building lightweight Python web applications
+                            and backend APIs.
+                        </p>
+
+                        <div class="skill-progress">
+                            <div style="--progress: 60%"></div>
+                        </div>
+
+                        <small>Learning</small>
+
+                    </div>
+
+
+                </div>
+
             </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>ATM</h3>
-            <p>A simple ATM simulation built with Python, demonstrating core banking functionalities.</p>
-            <div class="project-actions">
-              <a href="https://github.com/Jagritithandel/ATM">Go</a>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
+
+            <div class="container">
+
+                <div class="section-heading project-heading reveal">
+
+                    <div>
+
+                        <span class="section-tag">MY WORK</span>
+
+                        <h2>
+                            Projects that
+                            <span>represent my journey.</span>
+                        </h2>
+
+                    </div>
+
+                    <span class="project-count">
+                        09+ Projects
+                    </span>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <article class="project-card reveal tilt">
+
+                        <div class="project-number">01</div>
+
+                        <div class="project-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+
+                        <h3>Friend Chatbot</h3>
+
+                        <p>
+                            A Python chatbot designed to respond like
+                            a friendly companion using conversational
+                            patterns.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Logic</span>
+                            <span>Chatbot</span>
+                        </div>
+
+                        <a href="https://github.com/Jagritithandel/friend-bot"
+                            target="_blank"
+                            class="project-link">
+                            View Project
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="project-card reveal tilt">
+
+                        <div class="project-number">02</div>
+
+                        <div class="project-icon">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+
+                        <h3>ATM System</h3>
+
+                        <p>
+                            A Python-based ATM simulation demonstrating
+                            basic banking operations and programming logic.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Functions</span>
+                            <span>Logic</span>
+                        </div>
+
+                        <a href="https://github.com/Jagritithandel/ATM"
+                            target="_blank"
+                            class="project-link">
+                            View Project
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="project-card reveal tilt">
+
+                        <div class="project-number">03</div>
+
+                        <div class="project-icon">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+
+                        <h3>Calculator</h3>
+
+                        <p>
+                            A calculator project created to practice
+                            Python functions, operations and logic.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Functions</span>
+                            <span>Lambda</span>
+                        </div>
+
+                        <a href="https://github.com/Jagritithandel/Calculator"
+                            target="_blank"
+                            class="project-link">
+                            View Project
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="project-card reveal tilt">
+
+                        <div class="project-number">04</div>
+
+                        <div class="project-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <h3>Web Calculator</h3>
+
+                        <p>
+                            Modern browser-based calculator with a clean
+                            interface and interactive functionality.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <a href="https://github.com/Jagritithandel/Web-Calculator"
+                            target="_blank"
+                            class="project-link">
+                            View Project
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="project-card reveal tilt">
+
+                        <div class="project-number">05</div>
+
+                        <div class="project-icon">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+
+                        <h3>Number Guessing Game</h3>
+
+                        <p>
+                            Interactive Python game created to practice
+                            conditions, loops and logical thinking.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Game</span>
+                            <span>Logic</span>
+                        </div>
+
+                        <a href="https://github.com/Jagritithandel/num-guessing"
+                            target="_blank"
+                            class="project-link">
+                            View Project
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+
+                    <article class="project-card reveal tilt">
+
+                        <div class="project-number">06</div>
+
+                        <div class="project-icon">
+                            <i class="fa-solid fa-hand-scissors"></i>
+                        </div>
+
+                        <h3>Rock Paper Scissors</h3>
+
+                        <p>
+                            Classic Python game focused on conditional
+                            logic, random choices and user interaction.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Random</span>
+                            <span>Logic</span>
+                        </div>
+
+                        <a href="https://github.com/Jagritithandel/Rock-Paper-Scissors"
+                            target="_blank"
+                            class="project-link">
+                            View Project
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+                </div>
+
             </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>Calculator</h3>
-            <p>A responsive calculator built with python using lambda functions.</p>
-            <div class="project-actions">
-              <a href="https://github.com/Jagritithandel/Calculator">Go</a>
+
+        </section>
+
+
+        <!-- EDUCATION -->
+        <section id="education" class="section education-section">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="section-tag">EDUCATION</span>
+
+                    <h2>
+                        My learning
+                        <span>journey.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+
+                        <div class="timeline-card">
+
+                            <span class="timeline-date">
+                                2024 — 2028
+                            </span>
+
+                            <h3>
+                                Bachelor of Computer Applications
+                            </h3>
+
+                            <h4>
+                                BCA · 2nd Year
+                            </h4>
+
+                            <p>
+                                KL Mehta Dayanand College for Women,
+                                Faridabad
+                            </p>
+
+                            <span class="college">
+                                Affiliated to Maharshi Dayanand University
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+
+                        <div class="timeline-card">
+
+                            <span class="timeline-date">
+                                CURRENT FOCUS
+                            </span>
+
+                            <h3>
+                                AI Engineering Journey
+                            </h3>
+
+                            <h4>
+                                Python · AI/ML · Generative AI
+                            </h4>
+
+                            <p>
+                                Continuously learning Python,
+                                artificial intelligence, machine learning,
+                                Generative AI and backend development
+                                through practical projects.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>Portfolio Website</h3>
-            <p>A modern portfolio design that showcases skills, projects, and contact information with style.</p>
-            <div class="project-actions">
-              <a href="https://github.com/Jagritithandel/Portfolio">Go</a>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section id="contact" class="section contact-section">
+
+            <div class="container">
+
+                <div class="contact-box reveal">
+
+                    <div class="contact-info">
+
+                        <span class="section-tag">
+                            LET'S CONNECT
+                        </span>
+
+                        <h2>
+                            Have an idea?
+                            <span>Let's build it.</span>
+                        </h2>
+
+                        <p>
+                            Whether it's a project, collaboration,
+                            internship opportunity or simply a tech
+                            conversation — I'd love to hear from you.
+                        </p>
+
+
+                        <div class="contact-details">
+
+                            <div>
+                                <i class="fa-solid fa-envelope"></i>
+
+                                <div>
+                                    <small>Email</small>
+                                    <span>Let's connect through the form</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <i class="fa-brands fa-github"></i>
+
+                                <div>
+                                    <small>GitHub</small>
+                                    <a href="https://github.com/Jagritithandel"
+                                        target="_blank">
+                                        @Jagritithandel
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <form class="contact-form">
+
+                        <div class="input-group">
+
+                            <label>Your Name</label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your name"
+                                required>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Your Email</label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>Message</label>
+
+                            <textarea
+                                id="message"
+                                rows="5"
+                                placeholder="Tell me about your idea..."
+                                required></textarea>
+
+                        </div>
+
+
+                        <button type="submit" class="primary-btn submit-btn">
+
+                            Send Message
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
             </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>Web Calculator</h3>
-            <p>A modern web-based calculator with a clean UI and smooth interactions.</p>
-            <div class="project-actions">
-              <a href="https://github.com/Jagritithandel/Web-Calculator">Go</a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container footer-container">
+
+            <div class="footer-logo">
+                <span>&lt;/&gt;</span>
+                Jagriti
             </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>Number Guessing Game</h3>
-            <p>A fun and interactive number guessing game built with Python.</p>
-            <div class="project-actions">
-              <a href="https://github.com/Jagritithandel/num-guessing">Go</a>
+
+            <p>
+                Designed & built with curiosity, code & AI.
+            </p>
+
+            <div class="footer-socials">
+
+                <a href="https://github.com/Jagritithandel"
+                    target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/jagritithandel"
+                    target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
             </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>Rock Paper Scissors</h3>
-            <p>A classic game of rock, paper, scissors built with Python.</p>
-            <div class="project-actions">
-              <a href="https://github.com/Jagritithandel/Rock-Paper-Scissors">Go</a>
-            </div>
-          </article>
-          <article class="project-card reveal">
-            <h3>Voice Command Interface</h3>
-            <p>A Python-based voice command interface for controlling animals sounds.</p>
-            <div class="project-actions">
-              <a href="https://github.com/Jagritithandel/voice-cmd">Go</a>
-            </div>
-          </article>
+
         </div>
-      </div>
-    </section>
 
-    <section id="education">
-      <div class="container">
-        <div class="section-title reveal">
-          <h2>Education</h2>
-          <span>Academic background</span>
+        <div class="copyright">
+            © 2026 Jagriti. All rights reserved.
         </div>
-        <div class="education-grid">
-          <article class="education-card reveal">
-            <h3>Bachelor of Computer Applications (BCA) 2nd Year (2024-2028)</h3>
-            <p>KL Mehta Dayanand College for Women, Faridabad (Affiliated to Maharshi Dayanand University-MDU)</p>
-          </article>
-          <article class="education-card reveal">
-            <h3>Career Objective</h3>
-            <p> Motivated student with a strong interest in Artificial Intelligence and modern technologies. Skilled in programming. web development, and logical problem-solving. with hands-on experience through self-made GitHub projects. Seeking opportunities in Al or software development to gain real-world experience and contribute to innovative solutions. </article>
-        </div>
-      </div>
-    </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="section-title reveal">
-          <h2>Contact</h2>
-          <span>Get in touch</span>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-card reveal">
-            <form>
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+    </footer>
 
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your email" required>
 
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Write a message" required></textarea>
+    <!-- BACK TO TOP -->
+    <button class="top-button" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-              <button type="submit">Send Message</button>
-            </form>
-          </div>
-          <div class="glass-card reveal">
-            <h3>Let's build something great</h3>
-            <p>Ready to collaborate on a new project or learn more about AI development? Send a message and I will respond soon.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div class="social-links reveal">
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Instagram</a>
-      </div>
-      <p>&copy; 2026 Jyoti. All rights reserved.</p>
-    </div>
-  </footer>
+    <script src="newport.js"></script>
 
-  <button class="top-button" aria-label="Scroll to top">↑</button>
-
-  <script>
-    const typedPhrases = ['AI Engineer in training', 'Python Developer', 'Web Developer', 'Creative Problem Solver'];
-    const typingElement = document.querySelector('.typing');
-    let typedIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeEffect() {
-      const current = typedPhrases[typedIndex];
-      const text = isDeleting ? current.slice(0, charIndex - 1) : current.slice(0, charIndex + 1);
-      typingElement.textContent = text;
-
-      if (!isDeleting && charIndex < current.length) {
-        charIndex++;
-        setTimeout(typeEffect, 120);
-      } else if (isDeleting && charIndex > 0) {
-        charIndex--;
-        setTimeout(typeEffect, 60);
-      } else {
-        isDeleting = !isDeleting;
-        if (!isDeleting) {
-          typedIndex = (typedIndex + 1) % typedPhrases.length;
-        }
-        setTimeout(typeEffect, isDeleting ? 800 : 1600);
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      typeEffect();
-      document.querySelectorAll('.reveal').forEach((el, index) => {
-        setTimeout(() => el.classList.add('active'), 120 * index);
-      });
-      observeSections();
-    });
-
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('main section');
-    const topButton = document.querySelector('.top-button');
-
-    function observeSections() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const id = entry.target.id;
-          if (entry.isIntersecting) {
-            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
-          }
-        });
-      }, { threshold: 0.45 });
-
-      sections.forEach(section => observer.observe(section));
-    }
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        topButton.classList.add('show');
-      } else {
-        topButton.classList.remove('show');
-      }
-    });
-
-    topButton.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(event) {
-        event.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
 </body>
+
 </html>
